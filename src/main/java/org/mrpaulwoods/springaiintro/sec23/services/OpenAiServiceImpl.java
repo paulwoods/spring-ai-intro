@@ -1,11 +1,11 @@
-package org.mrpaulwoods.springaiintro.sec22.services;
+package org.mrpaulwoods.springaiintro.sec23.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.mrpaulwoods.springaiintro.sec22.model.Answer;
-import org.mrpaulwoods.springaiintro.sec22.model.GetCapitalRequest;
-import org.mrpaulwoods.springaiintro.sec22.model.Question;
+import org.mrpaulwoods.springaiintro.sec23.model.Answer;
+import org.mrpaulwoods.springaiintro.sec23.model.GetCapitalRequest;
+import org.mrpaulwoods.springaiintro.sec23.model.Question;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -21,11 +21,11 @@ import java.util.Map;
 public class OpenAiServiceImpl implements OpenAiService {
 
     private final ChatModel chatModel;
-
-    @Value("classpath:templates/sec22/get-capital-prompt.st")
+    @Autowired
+    ObjectMapper objectMapper;
+    @Value("classpath:templates/sec23/get-capital-prompt.st")
     private Resource getCapitalPrompt;
-
-    @Value("classpath:templates/sec22/get-capital-with-info.st")
+    @Value("classpath:templates/sec23/get-capital-with-info.st")
     private Resource getCapitalWithInfoPrompt;
 
     public OpenAiServiceImpl(ChatModel chatModel) {
@@ -42,9 +42,6 @@ public class OpenAiServiceImpl implements OpenAiService {
         System.out.println("I returned: " + answer.answer() + "\n\n");
         return answer;
     }
-
-    @Autowired
-    ObjectMapper objectMapper;
 
     @Override
     public Answer getCapital(GetCapitalRequest getCapitalRequest) {

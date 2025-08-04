@@ -10,7 +10,6 @@ import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.chat.prompt.PromptTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -21,26 +20,30 @@ import java.util.Map;
 public class OpenAiServiceImpl implements OpenAiService {
 
     private final ChatModel chatModel;
-    @Autowired
-    ObjectMapper objectMapper;
-    @Value("classpath:templates/sec23/get-capital-prompt.st")
-    private Resource getCapitalPrompt;
-    @Value("classpath:templates/sec23/get-capital-with-info.st")
-    private Resource getCapitalWithInfoPrompt;
+    private final ObjectMapper objectMapper;
+    private final Resource getCapitalPrompt;
+    private final Resource getCapitalWithInfoPrompt;
 
-    public OpenAiServiceImpl(ChatModel chatModel) {
+    public OpenAiServiceImpl(
+            ChatModel chatModel,
+            ObjectMapper objectMapper,
+            @Value("classpath:templates/sec23/get-capital-prompt.st")
+            Resource getCapitalPrompt,
+            @Value("classpath:templates/sec23/get-capital-with-info.st")
+            Resource getCapitalWithInfoPrompt
+    ) {
         this.chatModel = chatModel;
+        this.objectMapper = objectMapper;
+        this.getCapitalPrompt = getCapitalPrompt;
+        this.getCapitalWithInfoPrompt = getCapitalWithInfoPrompt;
     }
 
     @Override
     public Answer getAnswer(Question question) {
-        System.out.println("I was called with: " + question.question());
         PromptTemplate promptTemplate = new PromptTemplate(question.question());
         Prompt prompt = promptTemplate.create();
         ChatResponse response = chatModel.call(prompt);
-        Answer answer = new Answer(response.getResult().getOutput().getText());
-        System.out.println("I returned: " + answer.answer() + "\n\n");
-        return answer;
+        return new Answer(response.getResult().getOutput().getText());
     }
 
     @Override

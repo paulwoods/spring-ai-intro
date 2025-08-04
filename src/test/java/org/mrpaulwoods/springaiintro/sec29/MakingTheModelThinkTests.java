@@ -1,4 +1,4 @@
-package org.mrpaulwoods.springaiintro.sec28;
+package org.mrpaulwoods.springaiintro.sec29;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.chat.prompt.PromptTemplate;

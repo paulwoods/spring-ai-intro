@@ -1,4 +1,4 @@
-package org.mrpaulwoods.springaiintro.sec28;
+package org.mrpaulwoods.springaiintro.sec31;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

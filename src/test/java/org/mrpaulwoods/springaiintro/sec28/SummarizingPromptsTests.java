@@ -108,7 +108,7 @@ public class SummarizingPromptsTests extends BaseTestClass {
             
                 Summarize the reviews below, delimited by triple backticks, in at most 200 words.
             
-                Review: ```{review}```
+                Review 1: ```{review1}```
             
                 Review 2: ```{review2}```
             
@@ -121,7 +121,7 @@ public class SummarizingPromptsTests extends BaseTestClass {
             
                 Summarize the reviews below, delimited by triple backticks, in at most 200 words.
             
-                Review: ```{review}```
+                Review 1: ```{review1}```
             
                 Review 2: ```{review2}```
             
@@ -140,7 +140,7 @@ public class SummarizingPromptsTests extends BaseTestClass {
         PromptTemplate promptTemplate = new PromptTemplate(reviewPrompt3);
 
         System.out.println(chatModel.call(promptTemplate
-                        .create(Map.of("review", review1, "review2", review2, "review3", review3)))
+                        .create(Map.of("review1", review1, "review2", review2, "review3", review3)))
                 .getResult().getOutput().getText());
     }
 
@@ -149,7 +149,7 @@ public class SummarizingPromptsTests extends BaseTestClass {
         PromptTemplate promptTemplate = new PromptTemplate(reviewPrompt4);
 
         System.out.println(chatModel.call(promptTemplate
-                        .create(Map.of("review", review1, "review2", review2, "review3", review3)))
+                        .create(Map.of("review1", review1, "review2", review2, "review3", review3)))
                 .getResult().getOutput().getText());
     }
 }

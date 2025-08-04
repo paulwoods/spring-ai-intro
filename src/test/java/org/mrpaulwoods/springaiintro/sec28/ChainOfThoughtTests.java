@@ -49,7 +49,7 @@ public class ChainOfThoughtTests extends BaseTestClass {
     @Test
     void testTraditionalPrompt2() {
         String prompt = """
-                Alice left a glass of water outside overnight when the temperature was below freezing. The next morning, 
+                Alice left a glass of water outside overnight when the temperature was below freezing. The next morning,
                 she found the glass cracked. Explain step by step why the glass cracked.
                 """.stripIndent();
 

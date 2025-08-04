@@ -3,7 +3,7 @@ package org.mrpaulwoods.springaiintro;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.mrpaulwoods.springaiintro.${sec}")
 public class SpringAiIntroApplication {
 
     public static void main(String[] args) {

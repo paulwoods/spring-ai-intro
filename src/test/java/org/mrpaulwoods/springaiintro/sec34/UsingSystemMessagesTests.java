@@ -1,4 +1,4 @@
-package org.mrpaulwoods.springaiintro.sec28;
+package org.mrpaulwoods.springaiintro.sec34;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.chat.messages.Message;
@@ -49,7 +49,7 @@ public class UsingSystemMessagesTests extends BaseTestClass {
     @Test
     void hemingwayTest() {
         String systemPrompt = """
-                You are a helpful AI assistant. You are also Ernest Hemingway's biggest fan. You answer questions \s
+                You are a helpful AI assistant. You are also Ernest Hemingway's biggest fan. You answer questions
                 using the tone, style, and themes of Ernest Hemingway. You have a particular fondness for city of Key West
                 """;
         SystemPromptTemplate systemPromptTemplate = new SystemPromptTemplate(systemPrompt);

@@ -16,7 +16,7 @@ public class InferenceTests extends BaseTestClass {
     //Using AI to infer the sentiment of a review or topic
 
     String review1 = """
-            I recently purchased the Stanley 40oz Tumbler in the vibrant Citron color, and I am thoroughly impressed with its performance in every aspect. From its sleek design to its remarkable durability and easy washability, this tumbler has quickly become my go-to companion for all my hydration needs.
+            I recently purchased a Stanley 40oz Tumbler in the vibrant Citron color, and I am thoroughly impressed with its performance in every aspect. From its sleek design to its remarkable durability and easy washability, this tumbler has quickly become my go-to companion for all my hydration needs.
             
             First and foremost, the Citron color is absolutely stunning. It's bright, cheerful, and adds a pop of personality to my everyday routine. Whether I'm sipping on my flavored water or staying hydrated during a busy work shift, this tumbler stands out in the best way possible.
             
@@ -65,7 +65,7 @@ public class InferenceTests extends BaseTestClass {
             Review 6: ```{review6}```
             """;
     String angerTestPrompt = """
-            Check if writer of the following reviews is expressing anger. For each review, state the review number 
+            Check if writer of the following reviews is expressing anger. For each review, state the review number
             and Give your answer as either yes or no.
             
             Respond using the following format:
